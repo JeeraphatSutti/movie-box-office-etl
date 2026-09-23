@@ -4,6 +4,14 @@ An end-to-end ETL pipeline built with the **medallion architecture** (Bronze →
 that incrementally ingests raw movie box office data (~1M records), cleans and validates it,
 and produces aggregate analytics ready for reporting.
 
+## Dataset
+
+Data is sourced from the [Movie Dataset for Analytics and Visualization](https://www.kaggle.com/datasets/mjshubham21/movie-dataset-for-analytics-and-visualization) on Kaggle (~1M records).
+
+1. Download the dataset from Kaggle
+2. Place the CSV file(s) into `data/raw/`
+3. Run the pipeline (see [How to Run](#how-to-run))
+
 ## Architecture
 data/raw/.csv Raw source CSV files (landing zone)
 │
@@ -58,6 +66,9 @@ average ROI is nearly identical (~2.77x) across all genres.
 
 ## How to Run
 
+1. Download the dataset from [Kaggle](https://www.kaggle.com/datasets/mjshubham21/movie-dataset-for-analytics-and-visualization)
+2. Place the CSV file(s) into `data/raw/`
+
 ```bash
 pip install -r requirements.txt
 
@@ -69,4 +80,3 @@ python src/bronze_ingest.py
 python src/silver_transform.py
 python src/gold_aggregate.py
 
-Drop new CSV files into data/raw/ and re-run — only new files will be ingested.
